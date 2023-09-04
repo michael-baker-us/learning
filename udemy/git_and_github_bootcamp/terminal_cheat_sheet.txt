@@ -1,0 +1,302 @@
+=======
+GENERAL
+=======
+ls
+    short for list
+    list the contents the current directory or folder
+    you can also specify a folder "ls folder/folder/etc"
+ls -a
+    lists all files
+    this will reveal hidden files (.gitignore)
+pwd
+    short for print working directory
+    shows you the path of where you currently are
+cd 
+    short for change directory
+    "cd folder/folder/etc"
+
+cd ..
+    go back one level/directory
+~
+    tilda character
+    symbolizes Home directory
+open .
+    opens the current directory in Finder. Cool!!!
+clear (or cmd + k)
+    cleans up the terminal
+touch
+    create a file or multiple files
+    "touch touch.txt touch2.txt"
+    "touch touch.txt different/directory/than/im/in"
+mkdir
+    short for make directory
+    "mkdir mkdir_directory"
+rm
+    short for remove
+    this will permately remove the file. Not the trash can!!!
+    works on files not directories
+rm -rf
+    short for remove -recursive force
+    this will permately remove the directory. Not the trash can!!!
+    works on directories
+
+============================
+Example git commands to know
+============================
+    git config user.email
+        check the email active in the git repo
+    git config user.name
+        check the user name active in the git repo
+    git config --<local/global> user.name "name"
+        change the username
+    git config --<local/global> user.email "email"
+        change the email
+    git init
+        create a repo in current directory
+    git status
+        view the stuff of the branch
+    git log
+        view past commit
+    git log --oneline
+        a pretty view that only shows the summary
+    git add .
+        stages all files
+    git add text.txt text2.txt
+        stages one or multiple files
+    git commit -m "my commit message"
+        commits staged files with a commit message. Useful if commit message is short
+    git commit
+        commits staged files but first brings up an editor for commit message. Useful if commit message is long
+    git commit --amend
+        amends the PREVIOUS commit
+    git commit -a -m "<message>"
+        add/stages all files and commits in a single command
+    git branch
+        lists the branches the exist in a repo
+        active branches are highlighted by a '*'
+    git branch <branch name>
+        creates a branch
+        branch names should not include spaces
+        only creates a branch. Does not switch to said branch
+        creates a branch where the current HEAD is. IE the current branch you are on
+    git switch <branch name>
+        change to a different branch
+        newer command
+    git switch -c <branch name>
+        creates a new branch and switches to it in one command
+    git switch -
+        brings you back to the branch you were on previously
+    git checkout <branch name>
+        similiar to git switch but does much more. The old school way
+    git checkout -b <branch name>
+        creates and checkouts a branch in one command
+    git checkout <hash>
+        only needs the abbreviation (first 7)
+        detached HEAD!?
+        go back in time to an old commit
+    git checkout HEAD~#
+        checks out previous commits without having to provide the hash
+        got back 1 commit with HEAD~1. go back 2 commits with HEAD~2, etc
+    git checkout HEAD <filename> / git checkout -- <filename> <filename> (short hand)
+        discards changes that are not committed?
+    git branch -d <branch name>
+        delete the specified branch
+        cannot delete branches you are in
+        if branch is not merged you need to add an additional option
+    git branch -D <branch name>
+        ignopred the fact that the branch is not merged and deletes
+    git branch -m <new branch name>
+        renames the branch name
+        -m stands for move (rename)
+        first change to the branch that you want to rename. MUST DO
+    git branch -v
+        more detailed view of all branches
+    git merge <branch name>
+        merges the specified branch onto the HEAD. Where you currently are
+    git diff
+        display all changes in the working directory that are not staged
+    git diff HEAD
+        display all changes in the working directory since your last commit (HEAD)
+        This includes staged and unstaged changes
+    git diff --staged / git diff --cached
+        only shows staged changes
+        diff between my last commit and the staging area
+    git diff HEAD <filename> / git diff --staged <filename>
+        comare changes on a certain file
+    git diff <branch1>..<branch2> (you can use a space instead of ..)
+        compare changes between two branches
+    git diff <commit hash1>..<commit hash2>
+        compare changes between two commits
+        must be the commit hashes
+    git stash / git stash save
+        saves all staged and unstaged changed so you can come back to them
+        you can build up your stash but running this command mulitple times
+            will stash in order
+    git stash list
+        reveals what is in your stash
+    git stash pop
+        to reapply the stashed changes wherever you are!!
+        this removes changes from the stash
+        this is essentially a merge
+            might be conflicts you need to resolve
+    git stash apply
+        applys the stash changes to the work branch without removing from the stash
+            you can apply stash in multiple places
+        this is essentially a merge
+            might be conflicts you need to resolve
+    git stash apply stash@{<#>}
+        applies a certain stash from within your list
+        reference the stash id "stash@{3}"
+    git stash drop stash@{<#>}
+        removes stash items by stash id
+    git stash clear
+        removes all items from the stash
+    git restore <filename>
+        new command (similiar to some of git checkout)
+        git switch and git restore splits up git checkout
+        discards changes that have not been committed and restores the most recent commit
+        this is not undoable
+    git restore --source <HEAD~<#>/<hashId>> <filename>
+        restores to a specific commit and filename
+    git restore --staged <filename>
+        unstage a staged file
+    git reset <hashId> (plain/regular)
+        resets repo to the specified commit hash
+        changes from commits you reset will become unstaged
+    git reset --hard <hashId>
+        resets repo to the specified commit hash
+        changes from the specified will be gone FOREVER!!!
+    git revert <hashId>
+        similiar to reset but makes a new commit to undo the changes instead of deleting/removing the commits/changes
+    git clone <url>
+        retrieves a repo and puts it on your machine
+        works with any cloud git platform
+    ----
+    git remote -v (verbose)
+        list remote details if repo is remote
+    git remote add <name> <url>
+        name is usually origin
+        url is from the newly created repo . IE.. 
+            https://github.com/michael-baker-us/Colors.git
+    git remote rename <old> <new>
+        change the name if needed
+    git remote remove <name> 
+        remove remote if needed
+    git push <remote> <branch>
+        push your changes by specifiying the remote NAME and the branch you would like to push
+    git push <remote> <local-branch>:<remote branch>
+        push changes of from local to remote when the branch names different
+        not common
+    git push -u <remote> <branch> //assumes the same name
+    git push -u <remote> <local branch>:<remote branch>
+        -u stands for upstream
+        allows you to use shorthand of just "git push"
+        remebers that these branches are connected between local and remote (branch -> branch)
+    git branch -M main
+        rename the master branch from master to main (new standard)
+        master is still the default branch name on git
+    git branch -r
+        shows remote tracking branches
+    git fetch <remote> ("git fetch origin master" //fetching a single origin)
+        retrieves changes from a remote repo without changing anything in the working directory
+        you can pull down all at one with just 'git fetch' or git fetch origin'
+    git pull <remote> <branch>
+        the local branch you run this on matters!!
+        pulls can result in merge conflicts
+        shorthand is "git pull" 
+            default remote is 'origin'.
+            default branch is the branch you are in
+            this only works if a branch is configured with a remote branch (-u)
+    git rebase <branch name> (git rebase <master/main>)
+        git will create new commits based on the orginal commits
+        remove merge commits if they exist
+        commit hash will change since they are new
+        mmakes history linear with master/main at the base/tip of your feature branch
+    git rebase --abort
+        run if you want to abort when you run into conflict
+    git rebase --continue
+        run after you resolved conficts and have add the files that changed
+            resolve Conflicts
+            git add <conflict file>
+            git rebase --continue
+    git rebase -i HEAD~<#>
+        -i enters the interactive mode
+        commits show in reverse order DESC (depending on editor)
+            pick - use the commit
+            reword - use the commit but edit the commit message
+            edit - use the commit but stop for amending
+            squash - use the commit but melds it to the previous commit. Does not discard the commit message
+            fixup - use the commit contents but meld it into the previous commmit and discard the commit message    
+                ie I fucked up my first commit. This commit fixed it. Now you cant see my mistake
+            drop - remove commit
+    git tag
+        gets all tags
+    git tag -l
+        get all tags
+    git tags -l "*search*"
+        get all tags that contain the search criteria
+            "search"
+                exact
+            "search*"
+                start with
+            "*search"
+                end with
+    git checkout <tag>
+        goes in detached HEAD and checks out the commit the tag is on
+    git diff <tag1> <tag2>
+        diff two tags
+    git tag <tagname>
+        lioghtweight tag
+        tags the HEAD/commit you are current on
+    git tag -a <tag>
+        annotated tag
+        tags the HEAD/commit you are on
+        editopr promts
+        you can use -m  to add message inline
+    git tag show <tag>
+        shows tags with annotated data
+    git tag <tag> <commit>
+        tags previous commits by using the commits hash
+    git tag -f <tagname>
+        forcefully adds a tag
+            ie the tag name was already in use so it will be moved
+    git tag -d <tag>
+        deletes a tag
+    git push --tags
+        pushes all tags
+    git push <tag>
+        push a specific tag
+    git hash-object <file>
+        take the file and stores it in our .git/objects directory and give us back a unique SHA-1 HAsh that refers to that data object. Nothing is actually stored outside of the HASH
+    echo "value" | git hash-onbject --stdin
+        this will has what you send in
+        you dont need to run this in a git repo
+    echo "value" | git hash-onbject --stdin -w
+        creates an entry in the objects folder
+            first two digits are the folder name
+        would never really do this manually
+    git cat-file -p <object-hash>
+        allows you to retrieve a file (blob) based on its hash
+        -p mean pretty print
+        -t will tell you the type of file (tree/blob)
+    git cat-file -p master^{tree}
+        allows you to retrieve a tree and blob hash and file/folder names
+    git reflog show <reference>
+        history to the reference you point to
+            HEAD
+            branch
+            hash?
+            etc
+    git reflog
+    git reflog master@{one.week.ago}
+        time reference
+    git checkout bugfix@{2.days.ago}
+        time reference
+    git diff master@{0} master@{yesterday}
+        time reference
+undoing a rebase
+    git rebase -i HEAD~<#> //interactive rebase blah blah make changes
+    git reflog show <reference>
+    git reset --hard <hash before rebase>
+
+    git config --global/local alias.adifferentbranchcommand branch

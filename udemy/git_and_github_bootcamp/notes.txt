@@ -1,0 +1,345 @@
+============
+Commit Notes
+============
+Keep commits Atomic
+    a commit should emcompass a single feature, change, or fix. Keep it single focused.
+    this makes it much easier to undo or rollback changes
+    also makes things easier to review
+
+Keep commit messages in the Present Tense
+    fix vs fixed
+
+For "git log --oneline" to work git messages should be a summary first then the rest of the text be separate by a character return. For example
+
+    summary commit message
+    // blank
+    body commit message blah blah
+        - blah
+        - blah
+
+.gitignore file will stop got from tracking files lists. Uses for
+    secrets, api keys, credentials, etc
+    os files (.DS_store on mac)
+    log files
+    dependancies and packages?
+
+    example file context
+        .DS_Store //filename
+        folderName/ //folder name
+        *.log //wildcard any files (except for a /) with the .log extension
+
+============
+Branch Notes
+============
+Think of branches as bookmarks
+HEAD
+    a reference to a branch pointer. Where a branch currently is
+
+unstagged changes will come with you as you switch branches. If these are in conflict the git will not be happy :(
+
+common practice to delete branches after they have been merged to the main/master
+
+===========
+Merge Notes
+===========
+we merge branches not commits. No doh
+
+We always merge to where HEAD is. To where we are
+    git siwtch master
+    git merge <branch name> //merges branch name to master
+
+Fast Forward Merge
+    a simple merge where a branch (master/main) needs to catch up on new commits
+
+Merge Commit
+    when a merge aint so simple. The master branch has new changes/commits that your branch off of master does not have.
+    Opens editor if configured from the terminal
+
+Merge Conflicts
+    when changes conflict
+        same lines from the same file have changes
+    to resolve
+        - open the files with merge Conflicts
+        - edit the files to remove conflicts. Decide which branches content you should keep. Or keep both
+        - remove the conflict markers in the document (or use VS Code built in options)
+        - add your changes and make a commit to master to -m "resolve conflicts"
+    use VS code to help resolve conflicts from the terminal (sinbce you have this coinfigured as your editor)
+
+==========
+Diff Notes
+==========
+compare changes
+
+HEAD~1 is shorthand for the prior commit
+
+===========
+Stash Notes
+===========
+not commonly used. More so for convienence
+
+most of the time people use stash save and pop, if they even use it at all
+
+allows you to switch branches without bringing unstaged files with you (if you dont want to commit them).
+    git will complain if you attempt to switch if conflicts exist 
+        thats where stashing becomes useful
+
+================================
+Undoing Changes & Time Traveling
+================================
+use git checkout <hash> to travel back in time and create a new branch starting from an old commit (detached HEAD)
+
+git restore is used to unmodify a file or unstage(--staged) a file
+    git shows reminders in git status
+
+git reset can be useful when you make commits on the wrong branch. IE reset changes on master, unstage you files, add your files to a new branch (stash if needed)
+
+git reset should not be used when working with a terminal
+
+git revert should be used when working with a team. Dont remove commits that other people have on there machines!!!!
+
+git revert can cause conflicts that need to be resolved
+
+=============
+GitHub Basics
+=============
+github is a hosting platform for git repos. Push git repos to the cloud
+used to collaborate
+
+github is the most popular option
+
+its free and it isnt trash with the free option! 
+
+github is THE home of open source projects
+
+anyone can clone a public repo. If it was private it would not be visible
+
+pushing changes to a repo requires permissions
+
+setup a git remote to connect a local repo to a remote repo
+
+cloning a repo automatically sets up a remote
+
+====================
+Fetching and Pulling
+====================
+git fecth and git pull are how you retrieve changes in a remote changes that you do not have locally
+
+if you clone a repo you will only pull down the default branch and all the remote branches 
+    if you "git switch <branch>" to a branch that you donmt have but is a remote branch it will automatically be pulled down!!!
+
+think of the following as going forward ->
+    add
+        stage
+    commit
+        commit to the local repo
+    push
+        push to the remote repo
+think of the following as coming back <-
+    git fetch
+        retrieves the remote repo changes without impacting your local
+        safe to do anytime
+    git pull
+        retrieves the remote  repo changes with impacting local (git pull = git getch + git merge)
+        not reconmended if you have uncommited changes
+    
+its common practice to run a git pull before a git push and resolve conflicts if needed
+
+===============
+Github Grab Bag
+===============
+Public vs Private repos
+    controls visibility to outside users (vs owner)
+    anyone can clone a public repo
+        they cant push to the repo remote. They must be collaborators firsts
+bad practice to go from public -> private
+good practice to go private -> public
+
+to add collaborators
+    seetings>manage access
+    you can add collaborators to public or private repos 
+
+README
+    write long descriptions of your projects
+        what ther project does
+        how to run the project
+        why it noteworthy
+        who maintains the project
+    add the readme to the repo root and the readme will be display in remote repo by default
+    these are the first things people look at when coming to the project. the entry point
+    .md stands for markdown. 
+        generates formatted text (markup)
+     the one place a non technical recruiter will look!!!  
+
+     vs code markdown preview
+        > marketdown: open preview
+Gist
+    share code snippets with others or yourself (readme, code snippets, etc thaqt dont need its own repo. Maybe cheatsheets)
+        gists.github.com
+Pages 
+    static webpages (html, css, javascript) that are hosted on github
+    good for simple portfolio building projects
+    its free
+    makes hosting easy
+
+    user sites
+        one site per account
+        host a portfolio here or a personal website
+    
+    project sites
+        unlimited project sites
+        each repo can have a corresponding site
+        just tell github which specific branch contains the web contacts
+    
+    enable in..
+        settings>Pages
+        setup a branch for the Pages (gh-pages)
+            pages will look at the index.html file
+
+    use codepen for good example. Make sure you copy compiled html, etc
+
+===========================
+Git Collaboration Workflows
+===========================
+fork and clone is heavly used on open source projects when you can be a contributor on original repo
+
+always work on feature branches. Never work on master
+
+setup the default branch and branch protection rules
+    settings>branch
+
+PRs are not apart of Git. They are built on Remote git hosts like github
+
+Forking is not apart of Git. They are build on remote git hosts like github
+
+Forking makes a copy of a public repo on your account
+
+when forking you often setup two remotes
+    origin - your fork
+    upstream - original
+
+fork Workflows
+    fork the project
+    clone the fork
+    add upstream remote to original repo
+    push to origin (fork)
+    open a PR (fork - original)
+
+========
+Rebasing
+========
+git rebase is an alternative to git merge
+git rebase  is a clean up tool
+
+rebasing rewrites history
+    new feature begins where master ends
+        instead of where the feature was originally branched from
+!! Never rebase commits that people already have!!
+    only rebase commits/features that are only on your machine. Not that are pushed to a remote repo
+
+====================
+Interactive Rebasing
+====================
+sometimes we want to rewrite, delete, or even reorder commits before sharing them
+    git rebase -i enters the chat
+
+=========
+Tag Notes
+=========
+tags are used to mark version releases or projects
+    a label pointing a point in time that DOES NOT CHANGE
+    kind of like a sticky note on a commit
+two types of tags
+    lightweight tags
+        just name and label that points to a commit
+    annotated tags - preferred in large projects
+        includes additional meta data like author name, email, date, and tag message (like a commit message)
+Semantic versioning
+    1.1.1
+    Major.Minor.Patch
+    1.0.0
+        initial public releases
+    patch release - (fequent) are just bug fixes and minor changes    
+        does not impact how people use the code
+    minor release -  new feature or functionality but still backwards compatible
+    major release - significant release that can include breaking changes
+
+    tags are not included by default when you push
+
+===========================
+Git Behind The Scenes Notes
+===========================
+gitconfig
+    when adding remotes, the file is updated
+    git config --global/local user.name/email will update this file
+
+every git repo has a ref folder with diferent sub directories
+    heads
+        file for each branch
+    remotes
+        folder for each remote
+    tags
+        file for each tag 
+every git repo has a HEAD file 
+    a reference to a reference
+        ref: refs/heads/main
+!! The objects folder
+    files that store the git history
+        commit
+            every commit has a hash
+                tree
+                parent
+                author
+                commiter
+                message
+        tree 
+            store contents of a directory (not the content within a directory)
+            contain pointers that refer to blobs and other trees
+        blob
+            binary large object
+            just the insides of a file (not file name)
+            each blob gets it own hash
+            blobs are a building block for how we use git
+            blob hash vs commit hash
+        annotated tag
+
+        hashing functions take in a variable inputs and outputs fixed sized values
+            cryptographic hashing
+                the same input always yields the same output
+                small change in input = large change in the output
+                unlikley to find 2 outputs with the saem values
+            git uses SHA-1
+                git plans on changing at some point...eventually...which might be a pain  
+                    SHA-1 generates 40 digit hexidecimal numbers
+                git uses SHA-1 HASH in all four object types
+            git is a key value datastore
+                any data we store will give us a key
+                then we use that key to retrieve that data when we need it
+
+============
+Reflog notes
+============
+use to get yourself out of a bag situation
+
+keep a log of the pointer/where where are Z(HEAD feature, main, etc)
+
+reflogs are only local, not remote
+
+logs expire are 90 days
+
+reflogs can undo a hard reset on local
+
+undo a rebase with reflog
+
+===========
+Alias notes
+===========
+global git config impact all repos
+[alias]
+    s = status
+    l = log
+    cm = commit -m
+    a = 
+shortcuts for commands.
+    customizable to your liking
+
+getting used to alias and be difficult to go back to the default

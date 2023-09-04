@@ -1,0 +1,88 @@
+body {
+    /* common practice to remove defaulot body margin */
+    margin: 0;
+}
+
+div {
+    height: 200px;
+    width: 200px;
+    background-color: pink;
+}
+
+h1 {
+    background-color: lightblue;
+    width: 25%;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 100px;
+    /* by default h1 has margin. 0 removes it */
+    margin: 0;
+}
+
+span {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#one {
+    background-color: #0077b6;
+    /* need all three */
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    /* does not add onto the content */
+    box-sizing: border-box;
+    margin-left: 50px;
+    margin-bottom: 100px;
+
+}
+
+#two {
+    background-color: #48cae4;
+    border-width: 3px;
+    border-color: white;
+    border-style: dashed;
+    box-sizing: border-box;
+    border-left-color: yellow;
+    /* margin shorthand works the same as padding shorthand. see below */
+    margin: 200px;
+}
+
+#three {
+    background-color: #caf0f8;
+    /* boprder shorthand
+    width style color */
+    border: 1px dotted red;
+    box-sizing: border-box;
+    border-left-style: solid;
+    /* rounds corners
+    50% = circle */
+    border-radius: 50%;
+}
+
+#b1 {
+    /* padding shorthand */
+    /* adding padding on all 4 sides equally */
+    padding: 20px;
+}
+
+#b2 {
+    /* padding shorthand */
+    /* adding padding vertical | horizontal */
+    padding: 10px 20px;
+}
+
+#b3 {
+    /* padding shorthand */
+    /* adding padding top | horizontal | bottom */
+
+    padding: 10px 20px 30px;
+}
+
+#b4 {
+    /* padding shorthand */
+    /* adding padding top | right | bottom | left */
+    /* clockwise */
+    padding: 10px 20px 30px 40px;
+}

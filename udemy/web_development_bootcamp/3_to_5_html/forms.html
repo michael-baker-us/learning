@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h1>Test Form!</h1>
+    <button>outside the form</button>
+    <hr>
+    <form action="/tacos">
+        <p>
+            <label for="username">Enter a username:</label>
+            <input type="text" placeholder="username" id="username">
+        </p>
+        <p>
+            <label for="password">Eneter a password:</label>
+            <input type="password" placeholder="password" id="password">
+        </p>
+        <p>
+            <label for="color">Select a color:</label>
+            <input type="color" id="color">
+        </p>
+        <p>
+            <label for="number">Eneter a number:</label>
+            <input type="number" placeholder="enter a number" id="number" min="1" max="10" step="2">
+        </p>
+        <p>
+            <label for="time">Select a time:</label>
+            <input type="time" id="time">
+        </p>
+        <button type="button">Button</button>
+        <button type="submit">Submit</button>
+    </form>
+    <h1>Reddit Search</h1>
+    <form action="https://www.reddit.com/r/learnprogramming/search">
+        <p>
+            <label for="search"></label>
+            <input type="text" name="q" id="search">
+        </p>
+        <button>Search</button>
+    </form>
+    <h1>Google Search</h1>
+    <form action="https://www.google.com/search">
+        <p>
+            <label for="search"></label>
+            <input type="text" name="q" id="search">
+        </p>
+        <button>Search</button>
+    </form>
+    <h1>Youtube Search</h1>
+    <form action="https://www.youtube.com/results">
+        <p>
+            <label for="search"></label>
+            <input type="text" name="search_query" id="search" placeholder="Search Youtube">
+        </p>
+    </form>
+    <h2>More Inputs - Buttons</h2>
+    <form action="/foo">
+        <p>
+            <input type="checkbox" id="checkbox" name="c" checked>
+            <label for="checkbox">Default Checked</label>
+        </p>
+        <p>
+            <input type="checkbox" id="uncheckbox" name="uc">
+            <label for="uncheckbox">Default Unchecked</label>
+        </p>
+        <button>Search</button>
+    </form>
+    <h2>More Inputs - Radio Buttons</h2>
+    <!-- same name means only one button can be selected at a time -->
+    <form action="/foo">
+        <p>
+            <input type="radio" id="radio1" name="r" value="true">
+            <label for="radio1">Turn On</label>
+        </p>
+        <p>
+            <input type="radio" id="radio2" name="r" value="false">
+            <label for="radio2">Turn Off</label>
+        </p>
+        <button>Search</button>
+    </form>
+    <h2>More Inputs - Select Dropdown</h2>
+    <form action="/foo">
+        <p>
+            <label for="dropdown">Select a value:</label> <br>
+            <select name="dropdown" id="dropdown">
+                <option value="value1">Value1</option>
+                <option value="value2">Value2</option>
+                <option value="" selected>--Please choose an option--</option>
+                <option value="value3">Value3</option>
+            </select>
+        </p>
+        <button>Search</button>
+    </form>
+    <h2>More Inputs - Range</h2>
+    <form action="/foo">
+        <p>
+            <label for="range">Volume</label>
+            <input type="range" min="0" max="12" name="v" step="3" value="12">
+        </p>
+        <button>Search</button>
+    </form>
+    <h2>More Inputs - Text Area</h2>
+    <form action="/foo">
+        <p>
+            <label for="text">Special Requests</label> <br>
+            <textarea name="t" id="text" cols="30" rows="10" placeholder="Type here..."></textarea>
+        </p>
+        <button>Search</button>
+    </form>
+
+    <h2>Validations Demo</h2>
+    <form action="/foo">
+        <p>
+            <label for="username">Username</label> <br>
+            <input type="text" name="u" id="username" required>
+        </p>
+        <p>
+            <label for="password">Password</label> <br>
+            <input type="password" name="p" id="password" required minlength="8">
+        </p>
+        <p>
+            <label for="organization">Organization</label> <br>
+            <input type="text" name="o" id="organization" required>
+        </p>
+        <p>
+            <label for="email">Email</label> <br>
+            <input type="email" name="e" id="email">
+            <!-- type=email has a built in pattern validations -->
+        </p>
+        <p>
+            <label for="url">URL</label> <br>
+            <input type="url" name="url" id="url">
+            <!-- type=url has a built in pattern validations -->
+        </p>
+        <button>Login</button>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Basics</title>
+    <!-- cdn to access remotely instead of downloading on machine -->
+    <!-- should not be used in production app. Should download -->
+    <!-- bootstrap does not need to be memorized. Just like CSS. You will contantly be consulting docs -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <!-- container is required when working in the grid system -->
+    <!-- built in breakpoints to resize with max-widths (@media) -->
+    <!-- class=contain-fluid extends the data across the screen with minimal margin -->
+    <!--  the following options act fluid until a single breakpoint and the revert back to a regaular container
+        <div class="container-sm">100% wide until small breakpoint</div>
+        <div class="container-md">100% wide until medium breakpoint</div>
+        <div class="container-lg">100% wide until large breakpoint</div>
+        <div class="container-xl">100% wide until extra large breakpoint</div>- -->
+    <div class="container">
+        <!-- display-1,2,3,4 are just different sizes -->
+        <!-- text center controls text-alignment -->
+        <!-- text primary changes color -->
+        <h1 class="display-1 text-center text-primary">Bootstrap Playground</h1>
+        <h2 class="display-4">Buttons <span class="badge badge-success badge-pill">New</span></h2>
+        <!-- all button classes start with "btn" -->
+        <!-- colors can be customized -->
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <!-- add an outline -->
+        <button class="btn btn-outline-warning">Warning Outline</button>
+        <button class="btn btn-outline-danger">Danger Outline</button>
+        <!-- change the size of the button -->
+        <button class="btn btn-outline-info btn-lg">Info Outline</button>
+        <button class="btn btn-secondary btn-sm">SM Button</button>
+        <!-- no clicky click. Lightly grayed out -->
+        <button type="button" class="btn btn-success" disabled>Success Disabled</button>
+        <!-- "badge" is used to add an count. Nav bar, alerts, notifications, ect. -->
+        <!-- badge-pill top change the shape. Adds a border-radius -->
+        <button class="btn btn-primary">Updates <span class="badge badge-pill badge-light">9</span></button>
+        <h3>Button Groups</h3>
+        <!-- groups together buttons with no margin -->
+        <!-- could be used in place of radio buttons -->
+        <!-- only the outside buttons have a border-radius applied -->
+        <!-- https://getbootstrap.com/docs/4.5/components/button-group/ -->
+        <div class="btn-group" role="group">
+            <button class="btn btn-warning">One</button>
+            <button class="btn btn-warning">Two</button>
+            <button class="btn btn-warning">Three</button>
+        </div>
+        <h3>Alerts</h3>
+        <!-- https://getbootstrap.com/docs/4.5/components/alerts/ -->
+        <!-- show makes the alert visible -->
+        <!-- fade is a transition whe closing -->
+        <!-- "role=alert" is also for accessibility for screen readers -->
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading">Oh No!</h4>
+            Danger! You are about to end the world as we know it!
+            <!-- button is required when "alert-dismissible" is on -->
+            <!-- label is used for accessibility -->
+            <!-- "close" class comes from bootstrap to make this pretty -->
+            <!-- "data-dismiss" alert is a button bootstrap properity -->
+            <!-- requires the bootstrap JS file in the script links -->
+            <button aria-label="Close" class="close" data-dismiss="alert">
+                <!-- hidden from screen readers for accessibility -->
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <h2 class="display-4">Typography</h2>
+        <!-- class lead changes the font-size and font-weight -->
+        <!-- can be used for a tag line or the lead text for a page -->
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eaque, in autem cupiditate quasi
+            neque hic
+            minus
+            harum perferendis repellendus eos suscipit? Sunt laborum deserunt ea autem totam illum modi!Nobis expedita,
+            inventore provident reiciendis nostrum impedit, sunt magnam, labore ipsum sequi incidunt! Corrupti esse
+            harum
+            nesciunt soluta placeat, voluptates illo accusantium quam fuga ducimus quaerat minus laudantium, quo odit!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eaque, in autem cupiditate quasi
+            neque hic
+            minus
+            harum perferendis repellendus eos suscipit? Sunt laborum deserunt ea autem totam illum modi!Nobis expedita,
+            inventore provident reiciendis nostrum impedit, sunt magnam, labore ipsum sequi incidunt! Corrupti esse
+            harum
+            nesciunt soluta placeat, voluptates illo accusantium quam fuga ducimus quaerat minus laudantium, quo odit!
+        </p>
+        <!-- used top start a quote. Doesnt change much honestly -->
+        <!-- text-right is just text-align -->
+        <!-- "bg-" adds a background color -->
+        <blockquote class="blockquote text-right bg-light">
+            <!-- mb-0 removes margin -->
+            <!-- mb-+ would add margin -->
+            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ab sed iusto alias numquam
+                ipsum tenetur
+                error nostrum similique sunt, quod deserunt totam pariatur consequatur ad exercitationem et ea odio?</p>
+            <!-- used to sign a quote -->
+            <footer class="blockquote-footer">Mr. Lorem Ipsum</footer>
+        </blockquote>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

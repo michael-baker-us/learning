@@ -1,0 +1,42 @@
+img {
+    width: 30%;
+    /* margin: 1.66666666%; */
+    margin: calc(10%/6);
+}
+
+/* 30 + 30 + 30 =90
+10 left over 
+6 total spots for margin in a row of 3 (left and right)*/
+
+
+nav {
+    text-transform: uppercase;
+    border-bottom: 2px solid #f1f1f1;
+    width: 30%;
+    margin-left: calc(10%/6);
+    padding: .75em 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+
+}
+
+/* html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    overflow: auto;
+    height: 100%;
+} */
+
+/* img {
+    transition: 1s;
+}
+
+img:hover {
+    opacity: 50%;
+    transform: scale(105%);
+    box-shadow: 0 0.5em 0.5em -0.4em black;
+
+} */

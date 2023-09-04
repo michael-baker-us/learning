@@ -1,0 +1,60 @@
+/* body {
+    margin: 0;
+} */
+
+section {
+    background-color: green;
+    height: 400px;
+    width: 800px;
+}
+
+div {
+    background-color: black;
+    width: 70%;
+    height: 20%;
+}
+
+h1 {
+    font-size: 40px;
+    border: 1px solid black;
+    line-height: 200%;
+}
+
+article {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-left: 1em
+}
+
+h3 {
+    font: 1.5em;
+}
+
+p {
+    font-size: 1em;
+}
+
+/* em will multiple units from the parent */
+/* em are common to use with padding */
+
+button {
+    /* in an article */
+    font-size: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em;
+    color: white;
+    background-color: blue;
+}
+
+/* short coming of em. nested ul within ul so the em stack! */
+/* ul {
+    font-size: 1.5em;
+} */
+
+/* rem fixes this and honor the root element size so it doesnt stack */
+ul {
+    font-size: 1.5rem;
+}

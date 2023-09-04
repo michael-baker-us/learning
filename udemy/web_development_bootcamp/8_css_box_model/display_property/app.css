@@ -1,0 +1,41 @@
+h1 {
+    background-color: gold;
+    border: 1px solid black;
+    /* changes block elements to inline */
+    display: inline;
+}
+
+span {
+    background-color: pink;
+    border: 1px solid black;
+    /* changes inline emelemts to block */
+    display: block;
+}
+
+#ps {
+    background-color: pink;
+    border: 1px solid black;
+    /* changes inline emelemts to block */
+    display: inline;
+    /* ignored because this is an inline element */
+    width: 100px;
+    /* not ignored */
+    padding: 10px;
+    /* respected only horizontally */
+    margin: 50px;
+}
+
+div {
+    height: 200px;
+    width: 200px;
+    background-color: olivedrab;
+    border: 5px solid black;
+    /* diplay inline but now respects settings that inline display did not */
+    display: inline-block;
+    margin: 25px;
+}
+
+h2 {
+    /* hides element */
+    display: none;
+}

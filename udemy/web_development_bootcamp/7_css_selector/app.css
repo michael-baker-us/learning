@@ -1,0 +1,154 @@
+/* universal selector */
+/* * {
+    background-color: cyan;
+} */
+
+/* element selector */
+button {
+    font-size: 20px;
+    background-color: #DDA15E;
+}
+
+/* selector list */
+h1,
+h2 {
+    color: green;
+}
+
+body {
+    background-color: #FEFAE0;
+}
+
+/* id selector */
+#signup {
+    background-color: #BC6C25;
+    color: #FEFAE0;
+}
+
+span {
+    color: #a2d2ff;
+}
+
+/* class selector */
+.flair {
+    background-color: #ffb703;
+}
+
+/* descenant selector */
+footer li a {
+    color: yellowgreen;
+    text-decoration: none;
+}
+
+/* combining a class and descenant selector */
+.post a {
+    color: #415a77;
+}
+
+/* adjacent selector */
+h2+button {
+    background-color: #a2d2ff;
+}
+
+/* direct child selector */
+footer>a {
+    background-color: #ffb703;
+}
+
+/* attribute selector */
+input[type="password"] {
+    color: blue;
+}
+
+/* section.post {
+    background-color: white;
+} */
+
+/* *= contains */
+/* $= = ends with */
+/* = = matches */
+a[href*="google"] {
+    color: red;
+}
+
+
+/* Pseudo classes : */
+/* will not apply where an id selector is applied */
+
+.post button:hover {
+    background-color: black;
+    color: whitesmoke;
+}
+
+a:hover {
+    font-size: larger;
+    text-decoration: underline;
+}
+
+.post button:active {
+    background-color: #ef233c;
+}
+
+.post:nth-of-type(3n) {
+    background-color: white;
+}
+
+/* Psuedo elements :: (2) */
+
+h2::first-letter {
+    font-size: 50px;
+}
+
+p::first-line {
+    text-decoration: line-through;
+}
+
+p::selection {
+    background-color: yellowgreen;
+}
+
+::selection {
+    background-color: black;
+}
+
+/* Casade (most recent value is honored) */
+
+span {
+    color: black;
+}
+
+span {
+    color: #BC6C25;
+}
+
+/* Specificity 
+
+the most specific selector wins when a conflict exists
+inline >>>>
+ID > -- will beat out any number of class selectors 
+Class > -- will beat out any number of element selectors 
+Element*/
+
+li {
+    background-color: olivedrab;
+}
+
+nav li {
+    background-color: purple;
+}
+
+footer nav li {
+    background-color: blue;
+}
+
+/*  !important */
+/* override selector heiarchy */
+/* bad practice */
+
+ol li {
+    background-color: coral !important;
+}
+
+footer ol li {
+    background-color: pink;
+}
