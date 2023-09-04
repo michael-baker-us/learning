@@ -1,0 +1,111 @@
+primitive data types - the building blocks
+    symbol - less common
+    bigInt - less common
+    number
+    string
+    boolean
+    null
+    undefined
+// creates comments
+
+
+you can run JS code in the Chrome dev tools console (REPL)
+    cmd opt J - console shortcut
+    only use to run some basics in a quick way
+===================
+Numbers - primitive
+===================
+    decimals take up more memory
+    use math operators to PEMDAS
+    % modulo (remainder)
+     9 % 2
+        2 goes into 9 4 times. The left over is 1 (9-8)
+        used to determined if a number is even or odd ( % 2)
+            0 = even
+            1 = odd
+    9 ** 8
+        raises the first number to the second number power
+    NaN - special value in JS
+        Not A Number
+        0/0
+        1 + NaN 
+        NaN is still considered a typeof number
+            typeof NaN // outputs 'number'
+=========
+Variables
+=========
+give a name for a piece of data so you can easily reuse it later
+    think of it as labels for values
+
+    basic syntax
+        let = someName = value;
+variables are a snapshot in time from when you set the value
+increment values
+    variable += value //shorthand for the below
+    variable = variable + 5
+        other operaters work the same way
+            -=
+            *=
+            /=
+        further shorthand to increment by 1
+            --
+            ++
+                numLives--
+                numLives++
+i++ vs ++i (post vs pre increment)
+    let i = 5
+     //undefined
+    i++
+     //5
+    i++
+     //6
+    i++
+     //7
+    let i = 5
+     //undefined
+    ++i
+     //6
+    ++i
+     //7
+    ++i
+     //8
+
+names you can use to declare a variable
+    const (constant)
+        value can not be updated / reassigned
+            ie you cant use ++/--
+        store things you know would never change
+            ie feet in miles
+                const boilingPointC = 100
+                const boilingPointF = 212
+    let
+        value CAN be updated / reassigned
+            ie you can use ++/--
+        store things that you need to change
+            ie the score to a game
+    var
+        old way of making variables
+        used to be the only way to declare variables
+        you should never need to use these. Just be aware for old codebases
+
+variables can change types (typeof number to string, etc)
+    unique to JS and someothers
+    TypeScript (think of a JS addon) does enforce this typeof restrictions once a variable is set
+naming rules
+    hard rules (must)
+        no spaces
+        cant start with number
+    soft rules (nice to have)
+        use camelCase
+        be descriptive for readability without being too long
+        for boolean use 'is' as the beginning
+        avoid 1 letter names
+
+====================
+Booleans - primitive
+====================
+true / false | yes /no values
+    let isLoggedIn = true
+     // undefined
+    isLoggedIn
+     // true
